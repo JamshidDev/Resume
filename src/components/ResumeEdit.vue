@@ -2,7 +2,7 @@
   <div>
 
   
-  <div class="container">
+  <div v-if="editShow" class="container">
     <div class="row">
       <div class="col-sm-12">
         <p class="text-center resume-title">МАЪЛУМОТНОМА</p>
@@ -332,12 +332,12 @@
         </div>
       </div>
       <div class="col-sm-12">
-        <button type="button" @click="logger" class="btn btn-secondary btn-add-info">Save all</button>
+        <button type="button" @click="logger" class="btn btn-secondary btn-add-info">Generate resume</button>
       </div>
     </div>
   </div>
   <!-- Generate page -->
-  <GeneratePage :resume="resume" />
+  <GeneratePage v-if="isShow"  :resume="resume" />
 
   </div>
 </template>
@@ -377,6 +377,8 @@ export default {
           infoArrey: [],
         relativeArrey: [],
       },
+      isShow:false,
+      editShow:true,
     };
   },
   methods: {
@@ -389,7 +391,8 @@ export default {
       console.log(this.resume.relativeArrey);
     },
     logger(){
-      console.log(this.resume);
+      this.isShow=true;
+      this.editShow=false;
     }
   },
 };
@@ -438,7 +441,7 @@ input {
   width: 100px;
 }
 .font-bold6 {
-  font-weight: 900;
+  font-weight: 700;
 }
 .box-info-resume {
   width: 50%;

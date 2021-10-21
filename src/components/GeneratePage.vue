@@ -205,7 +205,7 @@ input {
   width: 100px;
 }
 .font-bold6 {
-  font-weight: 900;
+  font-weight: 700;
 }
 .box-info-resume {
   width: 50%;
